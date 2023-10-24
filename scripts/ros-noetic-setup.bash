@@ -32,6 +32,7 @@ if [ $ans = 'y' ]; then
     if [ $? -gt 0 ]; then
         echo Failed to install other dependencies
         exit 1
+    fi
 
     echo initialize rosdep
     sudo rosdep init

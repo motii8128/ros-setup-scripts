@@ -34,9 +34,14 @@ if [ $ans = 'y' ]; then
         exit 1
     fi
 
-    echo initialize rosdep
+    echo "initialize rosdep"
     sudo rosdep init
     rosdep update
+
+    echo "other necessary package install"
+    sudo apt-get install python3-testresources -y
+    sudo apt-get install ros-noetic-move-base -y
+    sudo apt-get install ros-noetic-catkin-virtualenv -y
 
 else
     echo "shutting down"

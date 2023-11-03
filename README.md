@@ -17,3 +17,6 @@ chmod +x ./scripts/ros-noetic-setup.bash
 ```
 ./scripts/ros-noetic-setup.bash
 ```
+```
+reboot
+```

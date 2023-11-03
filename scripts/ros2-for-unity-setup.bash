@@ -82,3 +82,26 @@ if [ $? -gt 0 ]; then
 fi
 
 echo "Get ros2-for-unity"
+cd ~/
+git clone https://github.com/RobotecAI/ros2-for-unity.git
+if [ $? -gt 0 ]; then
+    echo Failed to git clone ros2-for-unity
+    exit 1
+fi
+. /opt/ros/humble/setup.bash
+cd ros2-for-unity
+echo "Get repos"
+./pull_repositories.sh
+if [ $? -gt 0 ]; then
+    echo Failed to get repo
+    exit 1
+fi
+
+echo "Build ros2-for-unity"
+./build.sh
+if [ $? -gt 0 ]; then
+    echo Failed to build ros2-for-unity
+    exit 1
+fi
+
+echo "Scripts ended"

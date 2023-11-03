@@ -18,4 +18,5 @@ jobs:
 
       - name: Run setup script
         run: |
+          chmod +x ./scripts/ros-noetic-setup.bash 
           ./scripts/ros-noetic-setup.bash -y

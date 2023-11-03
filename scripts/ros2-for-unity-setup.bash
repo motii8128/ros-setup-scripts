@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Download UnityHub and set up ROS2cs and ros2-for-unity"
+echo "15~30 minutes"
 echo "Start settings?(y/n)"
 
 read flag_01
@@ -56,4 +57,28 @@ if [ $? -gt 0 ]; then
     exit 1
 fi
 
+echo "start ros2cs build"
 cd ~/
+git clone https://github.com/RobotecAI/ros2cs.git
+if [ $? -gt 0 ]; then
+    echo Failed to git clone ros2cs
+    exit 1
+fi
+source /opt/ros/humble/setup.bash
+
+cd ros2cs
+echo "Get repo"
+./get_repos.sh
+if [ $? -gt 0 ]; then
+    echo Failed to get repo
+    exit 1
+fi
+
+echo "BUILD start"
+./build.sh
+if [ $? -gt 0 ]; then
+    echo Failed to Build ros2cs
+    exit 1
+fi
+
+echo "Get ros2-for-unity"

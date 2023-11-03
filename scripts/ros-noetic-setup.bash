@@ -39,6 +39,7 @@ if [ $ans = 'y' ]; then
     rosdep update
 
     echo "other necessary package install"
+    sudo apt install ibus-mozc -y
     sudo apt-get install python3-testresources -y
     sudo apt-get install ros-noetic-move-base -y
     sudo apt-get install ros-noetic-catkin-virtualenv -y

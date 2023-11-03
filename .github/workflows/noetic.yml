@@ -1,0 +1,21 @@
+name: noetic setup test
+on:
+  schedule: # execute every 12 hours
+    - cron: 0 12 * * *
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+
+jobs:
+  env-setup-test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Run setup script
+        run: |
+          ./scripts/ros-noetic-setup.bash -y

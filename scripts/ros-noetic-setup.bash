@@ -44,7 +44,7 @@ if [ $ans = 'y' ]; then
 
     echo "other necessary package install"
     sudo apt install ibus-mozc -y
-    sudo apt-get install python3-testresources ros-noetic-move-base ros-noetic-catkin-virtualenv ros-noetic-slam-gmapping ros-noetic-map-server -y
+    sudo apt-get install python3-testresources ros-noetic-move-base ros-noetic-catkin-virtualenv ros-noetic-slam-gmapping ros-noetic-map-server libpcap-dev -y
     if [ $? -gt 0 ]; then
         echo Failed to install slam-gmapping ...
         exit 1

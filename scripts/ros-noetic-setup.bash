@@ -37,12 +37,20 @@ if [ $ans = 'y' ]; then
     echo "initialize rosdep"
     sudo rosdep init
     rosdep update
+    if [ $? -gt 0 ]; then
+        echo Failed to init rosdep
+        exit 1
+    fi
 
     echo "other necessary package install"
     sudo apt install ibus-mozc -y
-    sudo apt-get install python3-testresources -y
-    sudo apt-get install ros-noetic-move-base -y
-    sudo apt-get install ros-noetic-catkin-virtualenv -y
+    sudo apt-get install python3-testresources ros-noetic-move-base ros-noetic-catkin-virtualenv ros-noetic-slam-gmapping ros-noetic-map-server -y
+    if [ $? -gt 0 ]; then
+        echo Failed to install slam-gmapping ...
+        exit 1
+    fi
+
+    echo "All process finished!!!"
 
 else
     echo "shutting down"

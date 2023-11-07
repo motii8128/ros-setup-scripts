@@ -44,7 +44,7 @@ if [ $ans = 'y' ]; then
 
     echo "other necessary package install"
     sudo apt install ibus-mozc python3-rosinstall python3-rosinstall-generator -y
-    sudo apt-get install python3-testresources libpcap-dev libspdlog-dev -y
+    sudo apt-get install python3-testresources libpcap-dev libspdlog-dev cpputest -y
     if [ $? -gt 0 ]; then
         echo Failed to install slam-gmapping ...
         exit 1

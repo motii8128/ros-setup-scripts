@@ -28,6 +28,7 @@ sudo apt upgrade
 
 echo "ROS2-Humble"
 sudo apt install ros-humble-desktop
+sudo apt install python3-colcon-common-extensions
 
 source /opt/ros/humble/setup.bash
 

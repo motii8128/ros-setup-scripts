@@ -31,6 +31,19 @@ sudo apt install ros-humble-desktop
 
 source /opt/ros/humble/setup.bash
 
+echo "Install Rust"
+sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+
+echo "install cargo, colcon ..."
+pip install git+https://github.com/tier4/colcon-cargo.git
+pip install git+https://github.com/colcon/colcon-ros-cargo.git
+
+cd ~/
+git clone https://github.com/tier4/cargo-ament-build.git
+cd cargo-ament_build
+cargo install --path .
+
 echo "Get goole chrome .deb and Install"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb

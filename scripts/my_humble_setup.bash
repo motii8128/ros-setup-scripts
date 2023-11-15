@@ -10,7 +10,7 @@ fi
 echo "Start install ROS2 Humble"
 echo "Set locale"
 locale
-sudo apt update && sudo apt install locales
+sudo apt update && sudo apt install locales -y
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -24,11 +24,11 @@ sudo apt install curl -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 
 echo "ROS2-Humble"
-sudo apt install ros-humble-desktop
-sudo apt install python3-colcon-common-extensions python3-pip python3-rosdep2
+sudo apt install ros-humble-desktop -y
+sudo apt install python3-colcon-common-extensions python3-pip python3-rosdep2 -y
 
 source /opt/ros/humble/setup.bash
 
@@ -47,11 +47,11 @@ cargo install --path .
 
 echo "Get goole chrome .deb and Install"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
 echo "Get Visual-Studio-Code"
 curl -s https://raw.githubusercontent.com/karaage0703/ubuntu-setup/master/install-vscode.sh | /bin/bash
 
-sudo apt install ibus-mozc
+sudo apt install ibus-mozc -y
 
 echo Finished to install my environment
